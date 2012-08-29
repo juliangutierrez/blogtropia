@@ -1,0 +1,16 @@
+common: &common
+  adapter: postgresql
+  host: localhost
+
+development:
+  <<: *common
+  database: blogtropia_development
+  username: postgres
+
+test:
+  <<: *common
+  database: blogtropia_test
+  username: postgres
+
+production:
+  <<: *common

@@ -1,0 +1,11 @@
+<div class="pull-left well suggestions">
+	<h3>Sugestões:</h3>
+	<% Post.all.each do |post| %>
+		<%= render 'posts/preview', :post => post %>
+	<% end %>
+</div>
+<div class="pull-left well main">
+	<% Post.all.each do |post| %>
+		<%= render 'posts/preview', :post => post %>
+	<% end %>
+</div>
