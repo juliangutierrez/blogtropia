@@ -3,13 +3,17 @@ class Post < ActiveRecord::Base
 
   serialize :tags
 
-  before_save :serialize_tags
+  before_create :serialize_tags
 
   def serialize_tags
-  	self.tags = self.tags.split ","
+  	self.tags = self.tags.split(",").reduce([]) { |acc, tag| acc << tag.strip }
   end
 
   def tags_as_string
-  	self.tags.reduce("") { |acc, i| acc + "#{i}," }
+  	self.tags.join ', '
+  end
+
+  def self.by_tag(tag)
+    where(arel_table[:tags].matches("%#{tag}%"))
   end
 end

@@ -7,10 +7,43 @@ label {
 }
 
 .post-preview {
-	width: 200px;
-	margin-left: 20px;
+	height: 220px;
 
 	a {
 		float: right;
+		margin-right: 25px;
+	}
+}
+
+.carousel {
+	width: 242px;
+	margin-left: 10px;
+
+	.min {
+		width: 30px;
+		height: 30px;
+		font-size: 20px;
+		top: 86%;
+	}
+
+	.left {
+		right: auto;
+		left: 0px;
+	}
+
+	.right {
+		left: auto;
+		right: 0px;
+	}
+
+	.carousel-caption {
+		height: 50px;
+
+		p {
+			font-size: 11px;
+			margin-left: 25px;
+			margin-right: 25px;
+			height: 24px;
+		}
 	}
 }

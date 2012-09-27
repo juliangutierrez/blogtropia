@@ -1,7 +1,12 @@
-<div class="pull-left post-preview">
-	<dl>
-		<dt><%= post.title %></dt>
-		<dd><%= post.text[0,200] %></dd>
-	</dl>
-	<%= link_to 'Leia mais...', '#', :class => 'btn btn-primary btn-mini' %>
+<div class="post-preview <%= item %>">
+
+		<h6><%= post.title %></h6>
+		<p><%= post.text[0,300] %></p>
+
+	<div class="carousel-caption">
+		<% if post.persisted? %>
+			<p><%= post.tags_as_string %></p>
+			<%= link_to 'Leia mais...', '#', :class => 'btn btn-primary btn-mini' %>
+		<% end %>
+	</div>
 </div>

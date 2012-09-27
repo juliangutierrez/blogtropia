@@ -1,11 +1,33 @@
 <div class="pull-left well suggestions">
 	<h3>Sugestões:</h3>
+	<hr>
 	<% Post.all.each do |post| %>
-		<%= render 'posts/preview', :post => post %>
+		<%= render 'posts/preview', :post => post, :item => "" %>
 	<% end %>
 </div>
+
 <div class="pull-left well main">
-	<% Post.all.each do |post| %>
-		<%= render 'posts/preview', :post => post %>
+	<% ['css', 'greve', 'prefeitura', 'html', 'ux', 'browser'].each do |tag| %>
+
+		<div id="<%= tag %>" class="carousel slide pull-left">
+		  <h3><%= tag %></h3>
+		  <div class="carousel-inner">
+
+		  	<% item = "active item" %>
+		  	<% posts = Post.by_tag(tag) %>
+		  	<% posts.each do |post| %>
+						<%= render 'posts/preview', :post => post, :item => item %>
+						<% item = "item" %>
+				<% end %>
+				<% if posts.blank? %>
+					<% post = Post.new(:title => "Nenhum post", :text => "Não foram encontrados posts para esta categoria.") %>
+					<%= render 'posts/preview', :post => post, :item => item %>
+				<% end %>
+			</div>
+
+			<a class="carousel-control left min" href="#<%= tag %>" data-slide="prev">&lsaquo;</a>
+  		<a class="carousel-control right min" href="#<%= tag %>" data-slide="next">&rsaquo;</a>
+		</div>
+
 	<% end %>
 </div>
