@@ -3,9 +3,13 @@
 		<h6><%= post.title %></h6>
 		<p><%= post.text[0,300] %></p>
 
-	<div class="carousel-caption">
+	<div class="well preview-caption">
 		<% if post.persisted? %>
-			<p><%= post.tags_as_string %></p>
+			<p>
+				<% post.tags.each do |tag| %>
+					<span class="label label-inverse"><%= tag %></span>
+				<% end %>
+			</p>
 			<%= link_to 'Leia mais...', '#', :class => 'btn btn-primary btn-mini' %>
 		<% end %>
 	</div>

@@ -7,11 +7,11 @@ label {
 }
 
 .post-preview {
-	height: 220px;
+	height: 280px;
 
 	a {
 		float: right;
-		margin-right: 25px;
+		margin-right: 5px;
 	}
 }
 
@@ -19,11 +19,12 @@ label {
 	width: 242px;
 	margin-left: 10px;
 
-	.min {
-		width: 30px;
-		height: 30px;
-		font-size: 20px;
-		top: 86%;
+	.carousel-control {
+		font-size: 50px;
+		color: #999;
+		top: 84%;
+		background: inherit;
+		border: inherit;
 	}
 
 	.left {
@@ -36,8 +37,13 @@ label {
 		right: 0px;
 	}
 
-	.carousel-caption {
+	.preview-caption {
 		height: 50px;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #333;
 
 		p {
 			font-size: 11px;

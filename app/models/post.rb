@@ -9,10 +9,6 @@ class Post < ActiveRecord::Base
   	self.tags = self.tags.split(",").reduce([]) { |acc, tag| acc << tag.strip }
   end
 
-  def tags_as_string
-  	self.tags.join ', '
-  end
-
   def self.by_tag(tag)
     where(arel_table[:tags].matches("%#{tag}%"))
   end
